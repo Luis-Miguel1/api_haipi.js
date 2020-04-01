@@ -1,0 +1,19 @@
+{
+  "name": "api_restful-programador-a-bordo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon .src/index.js"
+  },
+  "author": "Luis Miguel",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^19.0.2",
+    "mongoose": "^5.8.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
