@@ -1,4 +1,4 @@
-const ProductModel = require('../models/product')
+const ProductRepository = require('../repository/produts')
 
 const tranformer=product=>({
 
@@ -15,36 +15,28 @@ const tranformer=product=>({
 })
 
 const getAll = async(request, h) => {
-    const products=await ProductModel.find({});
+    const products=await ProductRepository.getAll ();
     return {data: products.map(tranformer)}
 }
 
-const save = async (request, h) => {
-    console.log(request.payload);
-    const { name, price } = request.payload;
-
-    const product = new ProductModel({ name: name, price: price });
-    // product.name = name;
-    // product.price = price;
-    await product.save()
-
+const save = async (req, h) => {
+   
+  const product=  await ProductRepository.save(req.payload)
+ 
 return  h.response(tranformer(product)).code(201)
 }
 
-const remove = async (req,h)=>{
- await ProductModel.findOneAndDelete({_id:req.params.id})
+const remove = async (req,h )=>{
+ await ProductRepository.remove(req.params.id)
  return h.response().code(204)
 }
-const find =async (req,h)=>{
-     product= await ProductModel.findById(req.params.id);
+const find =async (req)=>{
+     product= await ProductRepository.find(req.params.id);
      return {data:tranformer(product)}
 }
 const update =async (req,h)=>{
-    product= await ProductModel.findByIdAndUpdate(req.params.id,req.payload) 
-    // const { name, price } = req.payload;
-    // product.name=name
-    // product.price=price
-    //await product.save()
+    product= await ProductRepository.update(req.params.id,req.payload) 
+ 
     return {data:tranformer(product)}
 }
 

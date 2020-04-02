@@ -6,5 +6,5 @@ var db = mongoose.connection;
 //check connection
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-console.log(' we are connect with mongo Luís!!')
+console.log(' we are connect with mongo Luís!')
 });
