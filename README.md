@@ -1,5 +1,4 @@
-
-API to crud a model product
+API que manipula dados no mongodb ,aplicando repository Pattern
 
 commands:
 npm start: run the project,
