@@ -10,7 +10,7 @@
   "author": "Luis Miguel",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^19.0.2",
+    "@hapi/hapi": "^19.1.1",
     "mongoose": "^5.8.9"
   },
   "devDependencies": {
